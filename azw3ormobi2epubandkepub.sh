@@ -19,5 +19,4 @@ calibredb list -f formats -w 9999 | grep -v epub | grep 'azw3\|mobi' | while rea
     kepubify "/tmp/$filename.epub" -o "/tmp/$filename.kepub"
     #Add kepub to calibre
     calibredb add_format "$id" /tmp/"$filename".kepub
-    calibredb add_format "$id" /tmp/"$filename".kepub
 done

@@ -1,5 +1,5 @@
 # What this does
-This will convert all your reflowable (azw3, mobi, epub) books to KePub and add them directly as additional formats for the same book ID to calibre.
+These scripts will convert all your reflowable (azw3, mobi, epub) books to KePub and add them directly as additional formats for the same book ID to calibre.
 
 It will query the library `calibredb` would pick up by default. If your DB is in an odd place, you can probaby symlink the calibredb directory to `~/'Calibre Library'` and not have to modify the script
 
