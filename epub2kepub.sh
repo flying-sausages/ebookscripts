@@ -10,7 +10,7 @@ calibredb list -f formats -w 9999 | grep -v kepub | grep epub | while read -r li
     fullname=$(basename "$filepath")
     filename="${fullname%.*}"
     
-    kepubify "$filepath" -o "/tmp/$filename.kepub"
+    kepubify "$filepath" --calibre -o "/tmp/$filename.kepub"
     calibredb add_format "$id" /tmp/"$filename".kepub
 
 done
