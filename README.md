@@ -31,3 +31,11 @@ You need `kepubify`, `ebook-convert` and `calibredb` installed and in your path.
 - I want downloaded books to be added to calibre straight away without using a cronjob
   - Transmission lets you execute a script after a torrent downloads and passes all sorts of useful variables to it
 - I want my downloaded books to be converted to my desired formats (ePub and Kepub) as part of this flow
+### What this does
+If you want to use this, change the credential variables in the script and then make sure to `chmod 700` the file. You can then point your transmission to run this script whenever a torrent has finished downloading
+
+The script will first sort your torrents into folders based on the tracker they came from. I like to do that so I don't have one massive un-organised folder with tons of torrents left and right.
+
+After that, the script will check the format of the file, and make reflowable conversions if possible. You can comment these out if you don't care for them. When it's done, it will add all the books as one folder.
+
+If the torrent was a folder, the script will assume that the folder represents one single book and will add all the formats in the folder as one book.
