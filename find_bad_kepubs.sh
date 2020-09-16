@@ -11,7 +11,7 @@ for artistdir in "$calibrelib"/*/; do
         epub=$(find "$bookdir" | grep -F .epub)
         kepub=$(find "$bookdir" | grep -F .kepub)
         if [[ -f $kepub ]]; then 
-            if [[ $(diff -sq "$epub" "$kepub") ]]; then 
+            if [[ ! $(cmp "$epub" "$kepub") ]]; then
                 echo "    File $kepub is identical to epub"
                 # rm "$kepub"
             fi 
