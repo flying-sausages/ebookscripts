@@ -11,7 +11,8 @@ log="$HOME/tr.log"
 # Move torrent to tracker-based directory
 TRACKER=$(transmission-remote $TR_HOST -n "$TR_USERNAME":"$TR_PASSWORD" -t$TR_TORRENT_ID -it | sed -n -e '/[:]/p' | head -1 | awk '{print substr($0, index($0,$3))}' | awk -F[/:] '{print $4}')
 echo "Tracker = ${TRACKER}" >> "$log" 2>&1
-mvdir="${TR_TORRENT_DIR}/${TRACKER}"
+basedldir=$(transmission-remote $TR_HOST -n "$TR_USERNAME":"$TR_PASSWORD" -si | grep 'Download directory' | cut -d: -f2 | awk '{print $1}')
+mvdir="${basedldir}/${TRACKER}"
 echo "mvdir = $mvdir" >> "$log" 2>&1
 if [[ ! -d "$mvdir" ]]; then
 	mkdir -p "$mvdir"
